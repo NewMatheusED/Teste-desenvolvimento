@@ -1,0 +1,347 @@
+/* salvei a paleta de cores em variáveis, apenas para facilitar na hora de digitar  */
+:root {
+    --darkGreen: #1a9047;
+    --lightGreen: #2bc866;
+    --blue: #004aad; 
+    --textColor: #3e424d;
+} 
+
+/* formatando o documento para eu poder manipular todas as medidas sem nada pré setado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Como é algo que vou usar muito, a declaração antes de começar o projeto é importante, para caso queira uma alteração rápida */
+.container {
+    padding: 100px 2% 0 2%;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.flex {
+    display: flex;
+}
+
+/* Permitindo o css entender os valores em porcentagem com precisão */
+html, body {
+    height: 100%;
+}
+
+/* A preferência por usar SCSS é algo pessoal, consigo me localizar com mais facilidade assim, mas usar a sintaxe pura do css é totalmente viável */
+header {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    .logo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        svg {
+            width: 3.5vw;
+            fill: var(--darkGreen);
+        }
+        h1 {
+            margin-left: .8vw;
+            color: var(--blue);
+            font-size: 1.8vw;
+        }
+    }
+    nav {
+        flex: 3;
+        text-align: center;
+        ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            li {
+                margin-left: 20px;
+                a {
+                    text-decoration: none;
+                    color: var(--darkGreen);
+                    font-size: 18px;
+                    /* Usei o after para fazer um efeito no hover do menu */
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 0%;
+                        height: 2px;
+                        background-color: var(--lightGreen);
+                        transition: width ease-in-out .3s;
+                    }
+                    &:hover {
+                        color: var(--lightGreen);
+                    }
+                    &:hover:after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .buttons {
+        flex: 1;
+        display: flex;
+        font-size: 21px;
+        justify-content: center;
+        .login {
+            padding: 10px 15px;
+            color: var(--darkGreen);
+            border: 1px solid var(--darkGreen);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all ease-in-out .1s;
+            &:hover {
+                background-color: var(--darkGreen);
+                color: white;
+            }
+        }
+        .singin {
+            padding: 10px 25px;
+            color: white;
+            background-color: var(--darkGreen);
+            border-radius: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all ease-in-out .1s;
+            &:hover {
+                background-color: var(--lightGreen);
+            }
+        }
+    }
+}
+
+.title {
+    font-size: 3.5vw;
+    color: var(--lightGreen);
+    text-align: center;
+}
+
+section.home {
+    .container {
+        text-align: center;
+        form {
+            max-width: 40vw;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            margin: 30px auto 50px auto;
+            input {
+                width: 70%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            span {
+                margin-left: 15px;
+                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #697882;
+                color: #fff;
+                fill: #fff;
+                font-size: 12px;
+                padding: 5px;
+                border-radius: 5px;
+                box-shadow: none;
+                transition: all ease-in-out .3s;
+                cursor: pointer;
+                svg {
+                    width: 15px;
+                    margin-right: 10px;
+                }
+                &:hover {
+                    box-shadow: 5px 5px 5px 0px rgba(196,196,196,1);
+                }
+            }
+        }
+    }
+}
+
+section.sobre {
+    .container {
+        p {
+            margin-top: 20px;
+            text-align: center;
+            color: var(--textColor);
+        }
+        .itens {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            .single {
+                width: 30%;
+                text-align: center;
+                h1 {
+                    margin-top: 5px;
+                    /* Precisei colocar essa margem por conta do efeito de hover da imagem, como não é uma png, o fundo estava pegando no texto */
+                    color: var(--lightGreen);
+                    font-size: 18px;
+                }
+                p {
+                    color: var(--textColor);
+                    margin-top: 20px;
+                }
+                img:hover {
+                    animation: shake .4s ease-in-out;
+                }
+            }
+        }
+        .button {
+            width: max-content;
+            background-color: var(--lightGreen);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px auto 0 auto;
+            cursor: pointer;
+            transition: all ease-in-out .3s;
+            &:hover {
+                background-color: var(--darkGreen);
+                box-shadow: 5px 5px 5px 0px rgba(196,196,196,1);
+            
+            }
+        }
+    }
+}
+
+section.parceiros {
+    background-color: var(--lightGreen);
+    margin-top: 100px;
+    .container {
+        padding: 100px 2%;
+        max-width: 900px;
+        .flex {
+            align-items: center;
+            justify-content: center;
+            .text {
+                flex: 2;
+                h1 {
+                    color: #fff;
+                    font-size: 2.5vw;
+                    line-height: 1.5;
+                    margin-bottom: 30px;
+                }
+                p {
+                    color: #fff;
+                    font-size: 14px;
+                }
+                .marcas {
+                    margin-top: 20px;
+                    background-color: #fff;
+                    border-radius: 40px;
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .marca {
+                        width: calc(100% / 5);
+                        height: 30px;
+                        background-color: var(--textColor);
+                        border-radius: 20px;
+                        &:hover {
+                            animation: shake .4s ease-in-out;
+                        }
+                    }
+                }
+            }
+            img {
+                flex: 1;
+                max-width: 500px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+section.ajuda {
+    margin-bottom: 100px;
+    .container {
+        .flex {
+            align-items: center;
+            justify-content: center;
+            img {
+                flex: 2;
+                max-width: 500px;
+                width: 100%;
+            }
+            .text {
+                flex: 1;
+                margin-left: 30px;
+                h1 {
+                    color: var(--lightGreen);
+                    font-size: 2.5vw;
+                    line-height: 1.5;
+                    margin-bottom: 10px;
+                    text-align: left;
+                }
+                p {
+                    color: var(--textColor);
+                }
+            }
+        }
+        .slider {
+            margin-top: 50px;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            svg {
+                width: 30px;
+                fill: var(--darkGreen);
+                cursor: pointer;
+                transition: all ease-in-out .1s;
+                &:hover {
+                    fill: var(--lightGreen);
+                
+                }
+            }
+            .box {
+                width: calc(100% / 5);
+                height: auto;
+                border: 1px solid var(--lightGreen);
+                padding: 50px 20px;
+                svg {
+                    cursor: default;
+                    width: 30px;
+                    fill: var(--lightGreen);
+                    margin-bottom: 10px;
+                }
+                h1 {
+                    color: var(--lightGreen);
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                }
+                p {
+                    color: var(--textColor);
+                    font-size: 14px;
+                    line-height: 1.5;
+                }
+                ul {
+                    li {
+                        font-size: 14px;
+                        color: var(--textColor);
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes shake {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0); }
+}
