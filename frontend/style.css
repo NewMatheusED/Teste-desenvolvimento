@@ -1,3 +1,10 @@
+/* No CSS, adquiri o costume a cerca de 1 ano em usar a sintexe do SCSS. Como particulamente não gosto de usar bibliotecas de estilização, como Boostrap ou Materialize (mesmo sabendo usar), sempre opto por procurar um meio de otimizar minha codificação, a fim de trazer mais eficiência e legibilidade ao código */
+
+/* O site está estático para telas de 1366x768 */
+
+/* Vou comentar alguma coisas que considero "diferentes" no código, mas em um geral, o css está bem simples */
+
+
 /* salvei a paleta de cores em variáveis, apenas para facilitar na hora de digitar  */
 :root {
     --darkGreen: #1a9047;
@@ -11,7 +18,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 /* Como é algo que vou usar muito, a declaração antes de começar o projeto é importante, para caso queira uma alteração rápida */
@@ -25,18 +32,25 @@
     display: flex;
 }
 
+.title {
+    /* O uso de unidades de medidas baseada na tela são uma escolha pessoal, optando sempre a responsividade, entretanto, como não é permitido usar JS nesse projeto, que contém menu, optei por não fazer responsivo, mas caso futuramente permita JS, posso mostrar como aplico minha forma de design responsivo */
+    font-size: 3.5vw;
+    color: var(--lightGreen);
+    text-align: center;
+}
+
 /* Permitindo o css entender os valores em porcentagem com precisão */
 html, body {
     height: 100%;
 }
 
-/* A preferência por usar SCSS é algo pessoal, consigo me localizar com mais facilidade assim, mas usar a sintaxe pura do css é totalmente viável */
 header {
     position: fixed;
     z-index: 999;
     width: 100vw;
     background-color: #fff;
     border-bottom: 1px solid #ccc;
+    /* O uso de display flex é bem marcante no meu CSS, consigo manipular com muito mais precisão e facilidade usando flex em comparação com grid ou inline-block */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,6 +61,7 @@ header {
         align-items: center;
         svg {
             width: 3.5vw;
+            /* Exemplo de uso de variáveis no CSS */
             fill: var(--darkGreen);
         }
         h1 {
@@ -69,6 +84,7 @@ header {
                     color: var(--darkGreen);
                     font-size: 18px;
                     /* Usei o after para fazer um efeito no hover do menu */
+                    /* O símbolo & cita novamente o elemente, tirando a necessidade de reescrevê-lo */
                     &:after {
                         content: '';
                         display: block;
@@ -117,12 +133,6 @@ header {
             }
         }
     }
-}
-
-.title {
-    font-size: 3.5vw;
-    color: var(--lightGreen);
-    text-align: center;
 }
 
 section.home {
@@ -257,6 +267,7 @@ section.parceiros {
             }
             img {
                 flex: 1;
+                /* Uma das formas, pra mim a mais simples, de deixar uma imagem responsiva */
                 max-width: 500px;
                 width: 100%;
             }
@@ -338,6 +349,7 @@ section.ajuda {
     }
 }
 
+/* animação personalizada para se usar no hover de alguns elementos */
 @keyframes shake {
     0% { transform: rotate(0); }
     25% { transform: rotate(10deg); }
